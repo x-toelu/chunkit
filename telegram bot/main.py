@@ -1,4 +1,5 @@
 from environs import Env
+from flask import Flask
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ConversationHandler, MessageHandler, filters
 
@@ -8,6 +9,7 @@ from handlers import confirm_chunks, get_num_chunks, handle_file
 
 env = Env()
 env.read_env()
+app = Flask(__name__)
 
 
 def main() -> None:
@@ -34,4 +36,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    app.run(port=5000)
     main()
