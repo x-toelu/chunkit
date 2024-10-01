@@ -1,5 +1,4 @@
 from environs import Env
-from flask import Flask
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ConversationHandler, MessageHandler, filters
 
