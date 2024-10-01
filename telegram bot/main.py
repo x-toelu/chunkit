@@ -32,9 +32,13 @@ def main() -> None:
     application.add_handler(CommandHandler("help", help_command))
     application.add_handler(conv_handler)
 
-    application.run_polling(allowed_updates=Update.ALL_TYPES)
-
+        # Start the webhook
+    application.run_webhook(
+        listen="0.0.0.0",  # Listen on all available network interfaces
+        # port=84443,
+        url_path=env.str("BOT_TOKEN"),  # Use the bot token as the URL path
+        webhook_url=f"https://chunkit-voe5.onrender.com/{env.str('BOT_TOKEN')}"
+    )
 
 if __name__ == "__main__":
-    app.run(port=5000)
     main()
