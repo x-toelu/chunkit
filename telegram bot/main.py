@@ -8,7 +8,6 @@ from handlers import confirm_chunks, get_num_chunks, handle_file
 
 env = Env()
 env.read_env()
-app = Flask(__name__)
 
 
 def main() -> None:
